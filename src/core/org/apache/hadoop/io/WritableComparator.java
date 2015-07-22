@@ -34,8 +34,7 @@ import org.apache.hadoop.util.ReflectionUtils;
  */
 public class WritableComparator implements RawComparator {
 
-  private static HashMap<Class, WritableComparator> comparators =
-    new HashMap<Class, WritableComparator>(); // registry
+  private static HashMap<Class, WritableComparator> comparators = new HashMap<Class, WritableComparator>(); // registry
 
   /** Get a comparator for a {@link WritableComparable} implementation. */
   public static synchronized WritableComparator get(Class<? extends WritableComparable> c) {
