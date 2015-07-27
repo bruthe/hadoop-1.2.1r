@@ -323,8 +323,7 @@ public class UTF8 implements WritableComparable<UTF8> {
    */
   public static int writeString(DataOutput out, String s) throws IOException {
     if (s.length() > 0xffff/3) {         // maybe too long
-      LOG.warn("truncating long string: " + s.length()
-               + " chars, starting with " + s.substring(0, 20));
+      LOG.warn("truncating long string: " + s.length() + " chars, starting with " + s.substring(0, 20));
       s = s.substring(0, 0xffff/3);
     }
 

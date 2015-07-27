@@ -46,8 +46,7 @@ public class WritableComparator implements RawComparator {
 
   /** Register an optimized comparator for a {@link WritableComparable}
    * implementation. */
-  public static synchronized void define(Class c,
-                                         WritableComparator comparator) {
+  public static synchronized void define(Class c, WritableComparator comparator) {
     comparators.put(c, comparator);
   }
 
@@ -62,8 +61,7 @@ public class WritableComparator implements RawComparator {
     this(keyClass, false);
   }
 
-  protected WritableComparator(Class<? extends WritableComparable> keyClass,
-      boolean createInstances) {
+  protected WritableComparator(Class<? extends WritableComparable> keyClass, boolean createInstances) {
     this.keyClass = keyClass;
     if (createInstances) {
       key1 = newKey();
