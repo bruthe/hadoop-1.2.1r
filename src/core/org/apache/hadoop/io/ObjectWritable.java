@@ -108,9 +108,7 @@ public class ObjectWritable implements Writable, Configurable {
 
   /** Write a {@link Writable}, {@link String}, primitive type, or an array of
    * the preceding. */
-  public static void writeObject(DataOutput out, Object instance,
-                                 Class declaredClass, 
-                                 Configuration conf) throws IOException {
+  public static void writeObject(DataOutput out, Object instance, Class declaredClass, Configuration conf) throws IOException {
 
     if (instance == null) {                       // null
       instance = new NullInstance(declaredClass, conf);
