@@ -99,8 +99,7 @@ public abstract class GenericWritable implements Writable, Configurable {
         return;
       }
     }
-    throw new RuntimeException("The type of instance is: "
-                               + instance.getClass() + ", which is NOT registered.");
+    throw new RuntimeException("The type of instance is: " + instance.getClass() + ", which is NOT registered.");
   }
 
   /**
@@ -111,8 +110,7 @@ public abstract class GenericWritable implements Writable, Configurable {
   }
   
   public String toString() {
-    return "GW[" + (instance != null ? ("class=" + instance.getClass().getName() +
-        ",value=" + instance.toString()) : "(null)") + "]";
+    return "GW[" + (instance != null ? ("class=" + instance.getClass().getName() + ",value=" + instance.toString()) : "(null)") + "]";
   }
 
   public void readFields(DataInput in) throws IOException {
@@ -129,8 +127,7 @@ public abstract class GenericWritable implements Writable, Configurable {
 
   public void write(DataOutput out) throws IOException {
     if (type == NOT_SET || instance == null)
-      throw new IOException("The GenericWritable has NOT been set correctly. type="
-                            + type + ", instance=" + instance);
+      throw new IOException("The GenericWritable has NOT been set correctly. type=" + type + ", instance=" + instance);
     out.writeByte(type);
     instance.write(out);
   }
