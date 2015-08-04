@@ -190,8 +190,7 @@ public class WritableComparator implements RawComparator {
     boolean isNegative = (len < -120);
     len = isNegative ? -(len + 120) : -(len + 112);
     if (start+1+len>bytes.length)
-      throw new IOException(
-                            "Not enough number of bytes for a zero-compressed integer");
+      throw new IOException("Not enough number of bytes for a zero-compressed integer");
     long i = 0;
     for (int idx = 0; idx < len; idx++) {
       i = i << 8;
