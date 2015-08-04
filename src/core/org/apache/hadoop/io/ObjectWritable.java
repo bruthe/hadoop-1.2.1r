@@ -121,8 +121,7 @@ public class ObjectWritable implements Writable, Configurable {
       int length = Array.getLength(instance);
       out.writeInt(length);
       for (int i = 0; i < length; i++) {
-        writeObject(out, Array.get(instance, i),
-                    declaredClass.getComponentType(), conf);
+        writeObject(out, Array.get(instance, i), declaredClass.getComponentType(), conf);
       }
       
     } else if (declaredClass == String.class) {   // String
@@ -164,8 +163,7 @@ public class ObjectWritable implements Writable, Configurable {
   
   /** Read a {@link Writable}, {@link String}, primitive type, or an array of
    * the preceding. */
-  public static Object readObject(DataInput in, Configuration conf)
-    throws IOException {
+  public static Object readObject(DataInput in, Configuration conf) throws IOException {
     return readObject(in, null, conf);
   }
     

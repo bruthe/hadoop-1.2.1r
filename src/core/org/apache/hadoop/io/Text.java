@@ -44,8 +44,8 @@ import org.apache.commons.logging.LogFactory;
  * byte array contains valid UTF8 code, calculating the length of an encoded
  * string.
  */
-public class Text extends BinaryComparable
-    implements WritableComparable<BinaryComparable> {
+public class Text extends BinaryComparable implements WritableComparable<BinaryComparable> {
+	
   private static final Log LOG= LogFactory.getLog(Text.class);
   
   private static ThreadLocal<CharsetEncoder> ENCODER_FACTORY =
@@ -299,8 +299,7 @@ public class Text extends BinaryComparable
       super(Text.class);
     }
 
-    public int compare(byte[] b1, int s1, int l1,
-                       byte[] b2, int s2, int l2) {
+    public int compare(byte[] b1, int s1, int l1, byte[] b2, int s2, int l2) {
       int n1 = WritableUtils.decodeVIntSize(b1[s1]);
       int n2 = WritableUtils.decodeVIntSize(b2[s2]);
       return compareBytes(b1, s1+n1, l1-n1, b2, s2+n2, l2-n2);
@@ -385,8 +384,7 @@ public class Text extends BinaryComparable
       encoder.onMalformedInput(CodingErrorAction.REPLACE);
       encoder.onUnmappableCharacter(CodingErrorAction.REPLACE);
     }
-    ByteBuffer bytes = 
-      encoder.encode(CharBuffer.wrap(string.toCharArray()));
+    ByteBuffer bytes = encoder.encode(CharBuffer.wrap(string.toCharArray()));
     if (replace) {
       encoder.onMalformedInput(CodingErrorAction.REPORT);
       encoder.onUnmappableCharacter(CodingErrorAction.REPORT);
