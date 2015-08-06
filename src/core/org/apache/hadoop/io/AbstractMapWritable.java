@@ -63,15 +63,13 @@ public abstract class AbstractMapWritable implements Writable, Configurable {
     if (classToIdMap.containsKey(clazz)) {
       byte b = classToIdMap.get(clazz);
       if (b != id) {
-        throw new IllegalArgumentException ("Class " + clazz.getName() +
-          " already registered but maps to " + b + " and not " + id);
+        throw new IllegalArgumentException ("Class " + clazz.getName() + " already registered but maps to " + b + " and not " + id);
       }
     }
     if (idToClassMap.containsKey(id)) {
       Class c = idToClassMap.get(id);
       if (!c.equals(clazz)) {
-        throw new IllegalArgumentException("Id " + id + " exists but maps to " +
-            c.getName() + " and not " + clazz.getName());
+        throw new IllegalArgumentException("Id " + id + " exists but maps to " + c.getName() + " and not " + clazz.getName());
       }
     }
     classToIdMap.put(clazz, id);
@@ -84,8 +82,7 @@ public abstract class AbstractMapWritable implements Writable, Configurable {
       return;
     }
     if (newClasses + 1 > Byte.MAX_VALUE) {
-      throw new IndexOutOfBoundsException("adding an additional class would" +
-      " exceed the maximum number allowed");
+      throw new IndexOutOfBoundsException("adding an additional class would exceed the maximum number allowed");
     }
     byte id = ++newClasses;
     addToMap(clazz, id);
@@ -125,39 +122,24 @@ public abstract class AbstractMapWritable implements Writable, Configurable {
   protected AbstractMapWritable() {
     this.conf = new AtomicReference<Configuration>();
 
-    addToMap(ArrayWritable.class,
-        Byte.valueOf(Integer.valueOf(-127).byteValue())); 
-    addToMap(BooleanWritable.class,
-        Byte.valueOf(Integer.valueOf(-126).byteValue()));
-    addToMap(BytesWritable.class,
-        Byte.valueOf(Integer.valueOf(-125).byteValue()));
-    addToMap(FloatWritable.class,
-        Byte.valueOf(Integer.valueOf(-124).byteValue()));
-    addToMap(IntWritable.class,
-        Byte.valueOf(Integer.valueOf(-123).byteValue()));
-    addToMap(LongWritable.class,
-        Byte.valueOf(Integer.valueOf(-122).byteValue()));
-    addToMap(MapWritable.class,
-        Byte.valueOf(Integer.valueOf(-121).byteValue()));
-    addToMap(MD5Hash.class,
-        Byte.valueOf(Integer.valueOf(-120).byteValue()));
-    addToMap(NullWritable.class,
-        Byte.valueOf(Integer.valueOf(-119).byteValue()));
-    addToMap(ObjectWritable.class,
-        Byte.valueOf(Integer.valueOf(-118).byteValue()));
-    addToMap(SortedMapWritable.class,
-        Byte.valueOf(Integer.valueOf(-117).byteValue()));
-    addToMap(Text.class,
-        Byte.valueOf(Integer.valueOf(-116).byteValue()));
-    addToMap(TwoDArrayWritable.class,
-        Byte.valueOf(Integer.valueOf(-115).byteValue()));
+    addToMap(ArrayWritable.class, Byte.valueOf(Integer.valueOf(-127).byteValue())); 
+    addToMap(BooleanWritable.class, Byte.valueOf(Integer.valueOf(-126).byteValue()));
+    addToMap(BytesWritable.class, Byte.valueOf(Integer.valueOf(-125).byteValue()));
+    addToMap(FloatWritable.class, Byte.valueOf(Integer.valueOf(-124).byteValue()));
+    addToMap(IntWritable.class, Byte.valueOf(Integer.valueOf(-123).byteValue()));
+    addToMap(LongWritable.class, Byte.valueOf(Integer.valueOf(-122).byteValue()));
+    addToMap(MapWritable.class, Byte.valueOf(Integer.valueOf(-121).byteValue()));
+    addToMap(MD5Hash.class, Byte.valueOf(Integer.valueOf(-120).byteValue()));
+    addToMap(NullWritable.class, Byte.valueOf(Integer.valueOf(-119).byteValue()));
+    addToMap(ObjectWritable.class, Byte.valueOf(Integer.valueOf(-118).byteValue()));
+    addToMap(SortedMapWritable.class, Byte.valueOf(Integer.valueOf(-117).byteValue()));
+    addToMap(Text.class, Byte.valueOf(Integer.valueOf(-116).byteValue()));
+    addToMap(TwoDArrayWritable.class, Byte.valueOf(Integer.valueOf(-115).byteValue()));
     
     // UTF8 is deprecated so we don't support it
 
-    addToMap(VIntWritable.class,
-        Byte.valueOf(Integer.valueOf(-114).byteValue()));
-    addToMap(VLongWritable.class,
-        Byte.valueOf(Integer.valueOf(-113).byteValue()));
+    addToMap(VIntWritable.class, Byte.valueOf(Integer.valueOf(-114).byteValue()));
+    addToMap(VLongWritable.class, Byte.valueOf(Integer.valueOf(-113).byteValue()));
 
   }
 
@@ -201,8 +183,7 @@ public abstract class AbstractMapWritable implements Writable, Configurable {
         addToMap(Class.forName(className), id);
         
       } catch (ClassNotFoundException e) {
-        throw new IOException("can't find class: " + className + " because "+
-            e.getMessage());
+        throw new IOException("can't find class: " + className + " because " + e.getMessage());
       }
     }
   }    
