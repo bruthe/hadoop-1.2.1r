@@ -32,8 +32,7 @@ import org.apache.hadoop.util.ReflectionUtils;
 /**
  * A Writable Map.
  */
-public class MapWritable extends AbstractMapWritable
-  implements Map<Writable, Writable> {
+public class MapWritable extends AbstractMapWritable implements Map<Writable, Writable> {
 
   private Map<Writable, Writable> instance;
   

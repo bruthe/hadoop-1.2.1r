@@ -34,8 +34,7 @@ import org.apache.hadoop.util.ReflectionUtils;
 /**
  * A Writable SortedMap.
  */
-public class SortedMapWritable extends AbstractMapWritable
-  implements SortedMap<WritableComparable, Writable> {
+public class SortedMapWritable extends AbstractMapWritable implements SortedMap<WritableComparable, Writable> {
   
   private SortedMap<WritableComparable, Writable> instance;
   
