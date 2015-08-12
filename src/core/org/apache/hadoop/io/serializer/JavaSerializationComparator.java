@@ -32,8 +32,7 @@ import org.apache.hadoop.io.RawComparator;
  * @param <T>
  * @see JavaSerialization
  */
-public class JavaSerializationComparator<T extends Serializable&Comparable<T>>
-  extends DeserializerComparator<T> {
+public class JavaSerializationComparator<T extends Serializable&Comparable<T>> extends DeserializerComparator<T> {
 
   public JavaSerializationComparator() throws IOException {
     super(new JavaSerialization.JavaSerializationDeserializer<T>());

@@ -34,11 +34,9 @@ import org.apache.hadoop.util.ReflectionUtils;
  * {@link Writable#write(java.io.DataOutput)} and
  * {@link Writable#readFields(java.io.DataInput)}.
  */
-public class WritableSerialization extends Configured 
-  implements Serialization<Writable> {
+public class WritableSerialization extends Configured implements Serialization<Writable> {
   
-  static class WritableDeserializer extends Configured 
-    implements Deserializer<Writable> {
+  static class WritableDeserializer extends Configured implements Deserializer<Writable> {
 
     private Class<?> writableClass;
     private DataInputStream dataIn;

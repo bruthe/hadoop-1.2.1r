@@ -62,8 +62,7 @@ public class JavaSerialization implements Serialization<Serializable> {
 
   }
   
-  static class JavaSerializationSerializer
-    implements Serializer<Serializable> {
+  static class JavaSerializationSerializer implements Serializer<Serializable> {
 
     private ObjectOutputStream oos;
 
