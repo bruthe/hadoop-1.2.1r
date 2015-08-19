@@ -1044,11 +1044,9 @@ public class SequenceFile {
     public synchronized void append(Object key, Object val)
       throws IOException {
       if (key.getClass() != keyClass)
-        throw new IOException("wrong key class: "+key.getClass().getName()
-                              +" is not "+keyClass);
+        throw new IOException("wrong key class: " + key.getClass().getName() + " is not "+keyClass);
       if (val.getClass() != valClass)
-        throw new IOException("wrong value class: "+val.getClass().getName()
-                              +" is not "+valClass);
+        throw new IOException("wrong value class: " + val.getClass().getName() + " is not "+valClass);
 
       buffer.reset();
 
