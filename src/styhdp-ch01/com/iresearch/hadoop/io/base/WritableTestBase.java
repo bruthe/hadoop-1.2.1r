@@ -70,7 +70,7 @@ public class WritableTestBase {
 	 * @return 待写入字节流的 十六进制 字符串 形式
 	 * @throws java.io.IOException
 	 */
-	public static String writeTo(Writable src, Writable dest) throws IOException{
+	public static String cloneInto(Writable src, Writable dest) throws IOException{
 		byte[] bytes = deserialize(dest, serialize(src));
 		return StringUtils.byteToHexString( bytes );
 	}
